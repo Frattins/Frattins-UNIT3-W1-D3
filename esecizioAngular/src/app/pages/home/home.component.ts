@@ -10,10 +10,15 @@ import { IJsonContent } from '../../Models/i-json-content';
 export class HomeComponent {
 
   postArr:iPost[] = [];
+  firstPost!:iPost;
 
   ngOnInit(){
 
   this.getPost()
+
+  let firstPost = this.getFirstPost()
+
+  if(firstPost) this.firstPost = firstPost
 
   }
 
@@ -23,4 +28,9 @@ export class HomeComponent {
 
     this.postArr = posts.posts
   }
-}
+
+    getFirstPost(){
+      return this.postArr.shift()
+    }
+  }
+

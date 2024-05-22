@@ -1,3 +1,14 @@
+<h3>Post in evidenza</h3>
+<div id="postinevidenza" *ngIf="postArr.length > 0">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ postArr[0].title }}</h5>
+      <p class="card-text">{{ postArr[0].body }}</p>
+    </div>
+  </div>
+</div>
+
+<h3>Tutti i post</h3>
 <div class="row">
   <div class="col 12 col-md-6 col-lg-3" *ngFor="let p of postArr">
     <div class="card">
@@ -8,3 +19,5 @@
     </div>
   </div>
 </div>
+
+<h3>Potrebbero piacerti</h3>
