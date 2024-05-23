@@ -1,1 +1,9 @@
-<p>inactive-posts works!</p>
+<h3>INACTIVE POST</h3>
+<div id="postinevidenza" *ngFor="let p of getInactivePosts()">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ p.title }}</h5>
+      <p class="card-text">{{ p.body }}</p>
+    </div>
+  </div>
+</div>
