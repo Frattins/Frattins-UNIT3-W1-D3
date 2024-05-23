@@ -22,10 +22,21 @@ const routes: Routes = [
     title: 'Active Posts',
   },
   {
+    path:'active-posts/:id',
+    component: PostsDetailsComponent,
+    title: 'Posts Details'
+   },
+  {
     path: 'inactive-posts',
     component: InactivePostsComponent,
     title: 'Inactive Posts',
    },
+   {
+    path: 'inactive-posts/:id',
+    component: PostsDetailsComponent,
+    title: 'Inactive Posts',
+   }
+
 
 
 ];

@@ -1,1 +1,10 @@
-<p>active-posts works!</p>
+<h3>Active Posts</h3>
+<div id="postinevidenza" *ngFor="let p of getActivePosts()">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ p.title }}</h5>
+      <p class="card-text">{{ p.body }}</p>
+      <a class="btn btn-primary" [routerLink]="[p.id]">Dettaglio</a>
+    </div>
+  </div>
+</div>
