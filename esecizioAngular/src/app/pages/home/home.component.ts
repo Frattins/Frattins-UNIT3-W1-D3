@@ -11,18 +11,24 @@ export class HomeComponent {
 
   postArr:iPost[] = [];
   firstPost!:iPost;
+  randomPosts:iPost[] = [];
 
   ngOnInit(){
 
-  this.getPost()
+    this.getPosts().then(()=>{
 
-  let firstPost = this.getFirstPost()
+      let firstPost = this.getFirstPost()
 
-  if(firstPost) this.firstPost = firstPost
+      if(firstPost){
+        this.firstPost = firstPost
+      }
 
+      this.randomPosts = this.getRandomPosts()
+
+    })
   }
 
-  async getPost(){
+  async getPosts(){
     const response= await fetch("../../../assets/db.json")
     const posts = <IJsonContent> await response.json()
 
@@ -31,6 +37,11 @@ export class HomeComponent {
 
     getFirstPost(){
       return this.postArr.shift()
+    }
+
+    getRandomPosts(): iPost[] {
+      const shuffled = [...this.postArr].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, 4);
     }
   }
 
